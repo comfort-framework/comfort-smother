@@ -20,9 +20,13 @@ venv/bin/activate: requirements_test.txt
 clean:
 	python setup.py clean
 	find comfortsmother -type d -name "__pycache__" -exec rm -fr "{}" +
+	find tests -type d -name "__pycache__" -exec rm -fr "{}" +
 	find comfortsmother -type d -name ".cache" -exec rm -fr "{}" +
+	find tests -type d -name ".cache" -exec rm -fr "{}" +
 	find comfortsmother -type f -name '*.pyc' -delete
+	find tests -type f -name '*.pyc' -delete
 	find comfortsmother -type f -name '*$py.class' -delete
+	find tests -type f -name '*$py.class' -delete
 	rm -f nosetests.xml
 	rm -f memory_usage.txt
 	rm -rf .cache
