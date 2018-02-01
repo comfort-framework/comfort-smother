@@ -1,7 +1,6 @@
 # COMFORT Smother
 [![Build Status](https://travis-ci.org/comfort-framework/comfort-smother.svg?branch=master)](https://travis-ci.org/comfort-framework/comfort-smother)
 [![codecov](https://codecov.io/gh/comfort-framework/comfort-smother/branch/master/graph/badge.svg)](https://codecov.io/gh/fcomfort-framework/comfort-smother)
-[![BCH compliance](https://bettercodehub.com/edge/badge/comfort-framework/comfort-smother?branch=master)](https://bettercodehub.com/)
 
 
 ### Description
