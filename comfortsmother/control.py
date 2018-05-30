@@ -179,7 +179,6 @@ class ComfortSmother(object):
                                                     tested["method"], tested["uncovered_lines"],
                                                     tested["covered_lines"]))
                 test["tests"].append(tested)
-        logging.debug(self.data)
         self.data.append(test)
 
 
