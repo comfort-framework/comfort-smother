@@ -12,7 +12,7 @@ class SmotherNose(Coverage):
 
     def afterTest(self, test):
         self.coverInstance.stop()
-        self.smother.save_context("%s:%s" % test.address()[1:3])
+        self.smother.save_context("%s:%s" % test.address()[1:3], test.address()[0])
 
     def beforeTest(self, test):
 

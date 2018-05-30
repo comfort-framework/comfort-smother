@@ -52,7 +52,7 @@ class ComfortSmother(object):
         new_string = re.sub(pattern, "", string)
         return new_string.replace(" ", "")
 
-    def save_context(self, label):
+    def save_context(self, label, fspath=None):
         # The first unnamed part is the coverage during import, but this is not interesting to us
         if not label:
             return
@@ -102,10 +102,12 @@ class ComfortSmother(object):
             "module": module,
             "namespace": namespace,
             "method": method,
+            "location": str(fspath),
             "tests": list(),
         }
         logging.info("Looking at test with id: %s" % unique_id)
-        logging.debug("Module: %s, Namespace: %s, Method: %s, Label: %s" % (module, namespace, method, label))
+        logging.debug("Module: %s, Namespace: %s, Method: %s, Label: %s, Location: %s" %
+                      (module, namespace, method, label, fspath))
         # Go through the whole coverage data
         # label = semantic test name (e.g., tests.test_module2:Module2Test.testYWithX
         # key = path to python file (e.h. ~/src/test/resources/module2.py
@@ -172,8 +174,12 @@ class ComfortSmother(object):
                     "covered_lines": values["covered_lines"],
                 }
                 logging.info("Tests: %s" % tested["unique_id"])
-                logging.debug("Tested part has: location %s, module %s, namespace %s, method %s, uncovered_lines %s, covered_lines %s" % (tested["location"], tested["module"], tested["namespace"], tested["method"], tested["uncovered_lines"], tested["covered_lines"]))
+                logging.debug("Tested part has: location %s, module %s, namespace %s, method %s, uncovered_lines %s, "
+                              "covered_lines %s" % (tested["location"], tested["module"], tested["namespace"],
+                                                    tested["method"], tested["uncovered_lines"],
+                                                    tested["covered_lines"]))
                 test["tests"].append(tested)
+        logging.debug(self.data)
         self.data.append(test)
 
 

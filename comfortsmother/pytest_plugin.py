@@ -49,7 +49,7 @@ class Plugin(object):
 
     def pytest_runtest_teardown(self, item, nextitem):
         self.coverage.stop()
-        self.smother.save_context(item.nodeid)
+        self.smother.save_context(item.nodeid, item.fspath)
 
     def pytest_terminal_summary(self):
         self.smother.write(self.output)

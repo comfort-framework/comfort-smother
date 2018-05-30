@@ -4,12 +4,14 @@ from subprocess import check_call
 from tempfile import NamedTemporaryFile
 
 from tests.data import demo
+from tests.data import demo_testsuite
 
 expected_nose = [{
     "method": "test_bar",
     "module": "tests.data.demo_testsuite",
     "namespace": None,
     "unique_id": "tests.data.demo_testsuite:test_bar",
+    "location": demo_testsuite.__file__,
     "tests": [{
         "module": "tests.data.demo",
         "method": "bar",
@@ -24,6 +26,7 @@ expected_nose = [{
         "module": "tests.data.demo_testsuite",
         "namespace": None,
         "unique_id": "tests.data.demo_testsuite:test_bar2",
+        "location": demo_testsuite.__file__,
         "tests": [{
             "module": "tests.data.demo",
             "method": "bar",
@@ -40,6 +43,7 @@ expected_pytest = [{
     "module": "tests.data.demo_testsuite",
     "namespace": None,
     "unique_id": "tests.data.demo_testsuite:test_bar",
+    "location": demo_testsuite.__file__,
     "tests": [{
         "module": "tests.data.demo",
         "method": "bar",
@@ -54,6 +58,7 @@ expected_pytest = [{
         "module": "tests.data.demo_testsuite",
         "namespace": None,
         "unique_id": "tests.data.demo_testsuite:test_bar2",
+        "location": demo_testsuite.__file__,
         "tests": [{
             "module": "tests.data.demo",
             "method": "bar",
