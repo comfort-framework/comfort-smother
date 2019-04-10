@@ -108,3 +108,4 @@ pip-selfcheck.json
 /.comfortsmother
 /.comfortsmother_log
 .idea/
+.pytest_cache/

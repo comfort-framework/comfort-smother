@@ -173,11 +173,6 @@ class ComfortSmother(object):
                     "uncovered_lines": values["uncovered_lines"],
                     "covered_lines": values["covered_lines"],
                 }
-                logging.info("Tests: %s" % tested["unique_id"])
-                logging.debug("Tested part has: location %s, module %s, namespace %s, method %s, uncovered_lines %s, "
-                              "covered_lines %s" % (tested["location"], tested["module"], tested["namespace"],
-                                                    tested["method"], tested["uncovered_lines"],
-                                                    tested["covered_lines"]))
                 test["tests"].append(tested)
         self.data.append(test)
 
